@@ -1,0 +1,44 @@
+{
+	"categories": [
+		{
+			"id" : 1,
+			"name" : "person",
+			"supercategory" : "human"
+		},
+		{
+			"id" : 2,
+			"name" : "rider",
+			"supercategory" : "human"
+		},
+		{
+			"id" : 3,
+			"name" : "car",
+			"supercategory" : "vehicle"
+		},
+		{
+			"id" : 4,
+			"name" : "truck",
+			"supercategory" : "vehicle"
+		},
+		{
+			"id" : 5,
+			"name" : "bus",
+			"supercategory" : "vehicle"
+		},
+		{
+			"id" : 6,
+			"name" : "train",
+			"supercategory" : "vehicle"
+		},
+		{
+			"id" : 7,
+			"name" : "motorcycle",
+			"supercategory" : "vehicle"
+		},
+		{
+			"id" : 8,
+			"name" : "bicycle",
+			"supercategory" : "vehicle"
+		}
+	]
+}
