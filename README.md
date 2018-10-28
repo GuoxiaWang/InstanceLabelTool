@@ -16,10 +16,10 @@ The motivation of developing this Instance Lable Tool comes from the demand to l
 ## Screenshot
 
 ### Instance type
-![Instance type screenshot](./screenshot/instance_screenshot.png){:height="75%" width="75%"}
+![Instance type screenshot](./screenshot/instance_screenshot.png)
 
 ### Boundary type
-![Boundary type screenshot](./screenshot/boundary_screenshot.png){:height="75%" width="75%"}
+![Boundary type screenshot](./screenshot/boundary_screenshot.png)
 
 ## Requirements
 This tool tests sucessfully on Ubuntu 16.04.
