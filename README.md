@@ -50,13 +50,13 @@ This tool tests sucessfully on Ubuntu 16.04.
 
 ```
 {
-	"categories": [
-		{
-			"id" : int,
-			"name" : str,
-			"supercategory" : str
-		}
-	]
+    "categories": [
+        {
+            "id" : int,
+            "name" : str,
+            "supercategory" : str
+        }
+    ]
 }
 ```
 
