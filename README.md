@@ -24,12 +24,13 @@ The motivation of developing this Instance Lable Tool comes from the demand to l
 ## Requirements
 This tool tests sucessfully on Ubuntu 16.04.
 
-1. pyqt4
-2. cv2
-3. json
-4. scipy
-5. numpy
-6. getpass
+1. python2.7
+2. pyqt4
+3. cv2
+4. json
+5. scipy
+6. numpy
+7. getpass
 
 ## usage
 
