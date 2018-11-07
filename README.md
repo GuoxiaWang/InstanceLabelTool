@@ -11,7 +11,6 @@ The motivation of developing this Instance Lable Tool comes from the demand to l
 ## TODO
 - [ ] Support converting to COCO json format
 - [ ] Fix status bar's message display
-- [ ] Support instnce label layer up/down
  
 ## Screenshot
 
@@ -65,8 +64,8 @@ This tool tests sucessfully on Ubuntu 16.04.
 
 |  Hotkey      | Action |
 |:-------------:|------|
-| - | Decrease instance labels transparency    |
-| + | Increase instance transparency    |
+| - | Decrease instance labels non-transparency    |
+| + | Increase instance non-transparency    |
 | ← | Previous image |
 | → | Next image   |
 | o | Open the imagelist.json file|
@@ -76,7 +75,7 @@ This tool tests sucessfully on Ubuntu 16.04.
 | 0 | Temporarily not show instance labels   |
 | w/s/a/d | Move up/down/left/right the canvas   |
 | Ctrl + s | Save the modifies|
-| Ctrl + Left Click | Select or deselect o instance   |
+| Ctrl + Left Click | Select or deselect a instance   |
 | Shift + Left Click | Delete a point of the closed polygon   |
 | Left Click | Add a point to the drawing polygon, select a point and drag, or change occlusion boundary direction.   |
 | Right Click | Delete the lastest point of the drawing polygon   |

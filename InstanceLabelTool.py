@@ -147,6 +147,26 @@ class InstanceLabelTool(QtGui.QMainWindow):
         deleteObjAction.setEnabled(False)
         self.canvas.actSelObj.append(deleteObjAction)
 
+        # Layer up the selected object
+        layerupObjAction = QtGui.QAction(QtGui.QIcon(os.path.join(iconDir, 'layerup.png')), '&Tools', self)
+        layerupObjAction.setShortcuts([QtGui.QKeySequence.MoveToPreviousLine])
+        self.setTip(layerupObjAction, 'Layer up')
+        layerupObjAction.triggered.connect(self.canvas.layerUp)
+        self.toolbar.addAction(layerupObjAction)
+
+        # Layer down the selected object
+        layerdownObjAction = QtGui.QAction(QtGui.QIcon(os.path.join(iconDir, 'layerdown.png')), '&Tools', self)
+        layerdownObjAction.setShortcuts([QtGui.QKeySequence.MoveToNextLine])
+        self.setTip(layerdownObjAction, 'Layer down')
+        layerdownObjAction.triggered.connect(self.canvas.layerDown)
+        self.toolbar.addAction(layerdownObjAction)
+
+        # Modify the selected object label name
+        modifyLabelAction = QtGui.QAction(QtGui.QIcon(os.path.join(iconDir, 'modify.png')), '&Tools', self)
+        self.setTip(modifyLabelAction, 'Modify label name')
+        modifyLabelAction.triggered.connect(self.canvas.modifyLabel)
+        self.toolbar.addAction(modifyLabelAction)
+
         self.toolbar.addSeparator()
         
         # Zoom out
@@ -214,7 +234,10 @@ class InstanceLabelTool(QtGui.QMainWindow):
         self.show()
 
     def setTip(self, action, tip):
-        tip += " (Hotkeys: '" + "', '".join([str(s.toString()) for s in action.shortcuts()]) + "')"
+        shortcuts = "', '".join([str(s.toString()) for s in action.shortcuts()])
+        if (not shortcuts):
+            shortcuts = 'none'
+        tip += " (Hotkeys: '" + shortcuts + "')"
         action.setStatusTip(tip)
         action.setToolTip(tip)
 

@@ -1258,20 +1258,69 @@ class Canvas(QtGui.QWidget):
         
 
     # Modify the label of a selected object
-    def mofifyLabel(self):
-        # TODO
-        pass
+    def modifyLabel(self):
+        # cannot do anything without labels
+        if (not self.annotation):
+            return
+
+        # cannot do anything without a single selected object
+        if (len(self.selObjs) != 1):
+            return
+
+        obj = self.annotation.objects[self.selObjs[-1]]
+        oldLabel = obj.label
+        newLabel = self.curLabel
+        self.annotation.objects[self.selObjs[-1]].label = self.curLabel
+
+        self.showMessage.emit('Change object {0} label {1} to {2}'.format(obj.id, oldLabel, newLabel)) 
+
+        self.setChanges()
+        self.update()
+
+    # Modify the layer level of the selected object
+    def modifyLayer(self, offset):
+        # cannot do anything without labels
+        if (not self.annotation):
+            return
+
+        # cannot do anything without a single selected object
+        if (len(self.selObjs) != 1):
+            return
+
+        # The selected object that is modified
+        obj = self.annotation.objects[self.selObjs[-1]]
+        # The index in the label list we are right now
+        oldidx = self.selObjs[-1]
+        # The index we want to move to
+        newidx = oldidx + offset
+
+        # Make sure not exceed zero and the list lenght
+        newidx = min(max(newidx, 0), len(self.annotation.objects) - 1)
+
+        # If new and old idx are equal, there is nothing to do
+        if (oldidx == newidx):
+            return
+
+        # Move the entry in the labels list
+        self.annotation.objects[newidx], self.annotation.objects[oldidx] = \
+            self.annotation.objects[oldidx], self.annotation.objects[newidx]
+
+        # Update the selected object to the new index
+        self.selObjs[-1] = newidx
+        
+        self.showMessage.emit('Move object {0} with label {1} to layer {2}'.format(obj.id, obj.label, newidx))
+
+        self.setChanges()
 
     # Move a object layer up
     def layerUp(self):
-        # TODO
-        pass
+        self.modifyLayer(+1)
+        self.update()
 
     # Move a object layer down
     def layerDown(self):
-        # TODO
-        pass
-
+        self.modifyLayer(-1)
+        self.update()
 
 	# Increase label transparency
     def minus(self):
